@@ -21,15 +21,45 @@ import { render } from 'react-dom'
   - Don't forget all tags need to close correctly
 */
 
-function App(props) {
+function App({cohort, track, happy, name}) {
+  // const {cohort, track, happy, name} = props
+  /**
+   * const cohort = props.cohort;
+   * const track = props.track;
+   * const happy = props.happy;
+   * const name = props.name;
+   */
   return (
     <div className='container'>
-      <h1>Welcome to React, {props.track} rockstars!!</h1>
+      {/** 
+       *   const divElem = document.createElement("div");
+       *   divElem.classList.add("container");
+       */}
+      <h1>Welcome to React, {track} {cohort} rockstars!!</h1>
+      <p>Your instructor's name is: {name}</p>
+      { happy ? <p>I'M HAPPY IT'S FRIDAY!</p> : <p>IT'S MONDAY BOOOO</p> }
+
     </div>
   )
 }
 
+// props are data passed from a parent component to a child
+
+/**
+ * 1.) Objects
+ * 2.) Arrays
+ */
+
 render(
-  <App track='Web' />,
+  <App track='Web' name='casey' happy={false} numStudents={20} cohort={56} />,
   document.querySelector('#root')
 )
+
+/**
+ * const props = {
+ *   track: 'Web',
+ *   name: 'casey',
+ *   happy: 'NOOO'
+ * }
+ * App(props);
+ */
