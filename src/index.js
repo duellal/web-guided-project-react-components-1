@@ -1,6 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 
+import Playground from './components/Playground';
+
 /*
 💥💥💥 Rules when DECLARING a React component 💥💥💥
   - Name is capitalized
@@ -22,13 +24,6 @@ import { render } from 'react-dom'
 */
 
 function App({cohort, track, happy, name}) {
-  // const {cohort, track, happy, name} = props
-  /**
-   * const cohort = props.cohort;
-   * const track = props.track;
-   * const happy = props.happy;
-   * const name = props.name;
-   */
   return (
     <div className='container'>
       {/** 
@@ -38,7 +33,7 @@ function App({cohort, track, happy, name}) {
       <h1>Welcome to React, {track} {cohort} rockstars!!</h1>
       <p>Your instructor's name is: {name}</p>
       { happy ? <p>I'M HAPPY IT'S FRIDAY!</p> : <p>IT'S MONDAY BOOOO</p> }
-
+      <Playground />
     </div>
   )
 }
