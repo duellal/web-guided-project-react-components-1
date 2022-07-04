@@ -49,8 +49,9 @@ function App(props) {
       - Instead of {props.track} => {track}
     - Lets you know what you need to use in order to make it work
       - If you don't use a variable, an error will occur
+    - The order of the variables does not matter
   */
-  const { track, instructor, happy, date, Array, week } = props
+  const { track, instructor, happy, date, week, Array } = props
   return (
     /* When returning UI - there needs to be a wrapper div around EVERYTHING or it will cause an error
 
@@ -93,6 +94,12 @@ render(
   //Putting the React Component into the DOM
   document.querySelector('#root')
 )
+
+
+/* React Dev tools:
+  - get via Chrome Web store -> React dev tools
+    - 'React Developer Tools Offered by: Meta'
+*/
 
 /* Q+A:
 Does the value of the key from the property need to be a string?
