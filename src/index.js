@@ -50,7 +50,7 @@ function App(props) {
     - Lets you know what you need to use in order to make it work
       - If you don't use a variable, an error will occur
   */
-  const { track, instructor, happy } = props
+  const { track, instructor, happy, date, Array, week } = props
   return (
     /* When returning UI - there needs to be a wrapper div around EVERYTHING or it will cause an error
 
@@ -62,6 +62,12 @@ function App(props) {
       <h1>Welcome to React, {track} rockstars!!</h1>
       <h3>Meet your instructor {instructor}</h3>
       {happy ? <div>Estatic</div> : <div> Very bad day :( </div>}
+      <br></br>
+      <div>Today is {date}</div>
+      <p>An array of random numbers: {Array}
+        <br></br>
+        *Trying to make an array component on my own.</p>
+      <div>It is week {week}</div>
     </div>
 
     /* 
@@ -83,15 +89,12 @@ Render takes in 2 arguments:
 // Invoking the above function declaration - React
 render(
   //Below track='Web' is passing in the props
-  <App track='Web' instructor='Fiona Lemontart' happy={false} />,
+  <App track='Web' instructor='Fiona Lemontart' happy={true} date='July 4th, 2022' Array={[16, 29, 55, 1, 30, 29]} week={2} />,
   //Putting the React Component into the DOM
   document.querySelector('#root')
 )
 
-
 /* Q+A:
 Does the value of the key from the property need to be a string?
-- Not necessarily, you can passing booleans, numbers, strings, etc.
-
-
+- Not necessarily, you can passing booleans, numbers, strings, object, array(?) etc.
 */
