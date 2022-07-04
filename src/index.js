@@ -1,6 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 
+import Playground from './components/Playground'
+
 /*
 💥💥💥 Rules when DECLARING a React component 💥💥💥
   - Name is capitalized
@@ -69,6 +71,8 @@ function App(props) {
         <br></br>
         *Trying to make an array component on my own.</p>
       <div>It is week {week}</div>
+
+      <Playground cohort={track} />
     </div>
 
     /* 
@@ -77,6 +81,7 @@ function App(props) {
     The above code is saying: 
       If the varaible happy is true, then make a div with the text 'Estatic', otherwise make a div with the text 'Very bad day :('
     */
+
   )
 }
 
@@ -91,6 +96,7 @@ Render takes in 2 arguments:
 render(
   //Below track='Web' is passing in the props
   <App track='Web' instructor='Fiona Lemontart' happy={true} date='July 4th, 2022' Array={[16, 29, 55, 1, 30, 29]} week={2} />,
+  //Above, passing in an array will be learned in the next lesson
   //Putting the React Component into the DOM
   document.querySelector('#root')
 )
