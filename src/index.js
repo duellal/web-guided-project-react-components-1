@@ -21,15 +21,37 @@ import { render } from 'react-dom'
   - Don't forget all tags need to close correctly
 */
 
+//Building the React component using a function declaration below
+/* React Rules:
+    - the function name must be Capitalized
+      - to know that it is React being used b/c it uses both JS and HTML 
+      - that is is a React component and not a HTML component
+    - need to input a variable (below: props) for React to interact with 
+      - way to pass data around
+    - always have to return something 
+
+JSX:
+  - HTML like syntax used inside of React
+
+If you want to add a class for styling purposes can ONLY USE className = 'name'
+
+{} inside of JSX element:
+  - getting access to the variable passed in
+*/
+
 function App(props) {
   return (
     <div className='container'>
       <h1>Welcome to React, {props.track} rockstars!!</h1>
+      <h3>Meet your instructor {props.instructor}</h3>
     </div>
   )
 }
 
+//Invoking the above function declaration - React
 render(
-  <App track='Web' />,
+  //Below track='Web' is passing in the props
+  <App track='Web' instructor='Fiona Lemontart' />,
+  //Putting the React Component into the DOM
   document.querySelector('#root')
 )
