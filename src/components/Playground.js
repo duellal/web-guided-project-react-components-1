@@ -27,18 +27,38 @@ React has a hook called useState()
 */
 
 export default function Playground(prop) {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [spinnerOn, setSpinnerOn] = useState(true);
+  const [choice, setScissors] = useState('scissors')
 
-  const { cohort } = prop
+  if (spinnerOn) {
+    return (
+      <div className='container'>
+        <h6>Loading...</h6>
+        {/* Below is my code to turn off spinner - toggling the spinner off*/}
+        <button onClick={() => { setSpinnerOn(false) }}>Turn spinner off</button>
+      </div>
+    )
+  }
+
+  const { cohort } = prop;
   return (
-    <div className='container'>
+    /* Toggling the spinner on */
+    < div className='container' >
+      <button onClick={() => { setSpinnerOn(true) }}>Turn spinner on</button>
+
       <h1>{cohort} is currently learning React! </h1>
+
       <div>The count is {count}</div>
       <button onClick={() => { setCount(count + 1) }}>Add to Count</button>
-    </div>
-  )
-}
 
+      <h3> The current choice is {choice}</h3>
+      <button onClick={() => { setScissors('rock') }}>Pick rock</button>
+      <button onClick={() => { setScissors('paper') }}>Pick paper</button>
+      <button onClick={() => { setScissors('scissors') }}>Pick scissors</button>
+    </div >
+  );
+};
 
 
 /* Q+A:
