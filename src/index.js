@@ -8,6 +8,7 @@ import { render } from 'react-dom'
   - Must return SOMETHING (null, empty string, elements...)
   - React provides some built-in components that return HTML elements (h1, div, span...)
   - Attribute names with dashes are camelCased (except data- & aria-)
+    - mainly used with testing or accessibility
   - The `class` attribute is `className`, `for` attribute is `htmlFor`
   - We can INTERPOLATE 🔥 js expressions 🔥 using curly brackets
   - We interpolate attribute values and content
@@ -40,18 +41,57 @@ If you want to add a class for styling purposes can ONLY USE className = 'name'
 */
 
 function App(props) {
+  /*
+  Creating a new variable to do destructuring 
+
+  Destructuring = making the element props equal to the variables being used
+    - This allows you to not need to use the props element to call the variables 
+      - Instead of {props.track} => {track}
+    - Lets you know what you need to use in order to make it work
+      - If you don't use a variable, an error will occur
+  */
+  const { track, instructor, happy } = props
   return (
+    /* When returning UI - there needs to be a wrapper div around EVERYTHING or it will cause an error
+
+      Can use either a <div> JSX content </div> or <> JSX content </>
+
+      <> JSX content </> won't make a container around everything
+    */
     <div className='container'>
-      <h1>Welcome to React, {props.track} rockstars!!</h1>
-      <h3>Meet your instructor {props.instructor}</h3>
+      <h1>Welcome to React, {track} rockstars!!</h1>
+      <h3>Meet your instructor {instructor}</h3>
+      {happy ? <div>Estatic</div> : <div> Very bad day :( </div>}
     </div>
+
+    /* 
+    {happy ? <div>Estatic</div> : <div> Very bad day :( </div>}
+    
+    The above code is saying: 
+      If the varaible happy is true, then make a div with the text 'Estatic', otherwise make a div with the text 'Very bad day :('
+    */
   )
 }
 
-//Invoking the above function declaration - React
+
+/* Normally only use render once per app
+
+Render takes in 2 arguments:
+  1) Component - React
+  2) Where you are attaching the component
+*/
+// Invoking the above function declaration - React
 render(
   //Below track='Web' is passing in the props
-  <App track='Web' instructor='Fiona Lemontart' />,
+  <App track='Web' instructor='Fiona Lemontart' happy={false} />,
   //Putting the React Component into the DOM
   document.querySelector('#root')
 )
+
+
+/* Q+A:
+Does the value of the key from the property need to be a string?
+- Not necessarily, you can passing booleans, numbers, strings, etc.
+
+
+*/
